@@ -19,12 +19,6 @@ class StudentService extends Service
 
     public function create(array $request)
     {
-        $emailIsExists = $this->authRepository->getByEmail($request['email']);
-
-        if (!empty($emailIsExists)) {
-            HttpResponse::failedValidation('Email already exists.');
-        }
-
         $userParams = RequestParams::user($request, 2);
         MySql::beginTransaction();
 
@@ -47,15 +41,6 @@ class StudentService extends Service
     public function update(array $request)
     {
         $student = $this->repository->getStudentAccountById($request['id']);
-
-        if (!$student) return HttpResponse::badRequest('Student is not exists.');
-
-        $emailIsExists = $this->authRepository->getByEmail($request['email']);
-
-        if (!empty($emailIsExists) && $student['email'] !== $request['email']) {
-            return HttpResponse::failedValidation('Email already exists.');
-        }
-
         $userParams = RequestParams::user($request);
         MySql::beginTransaction();
 
@@ -73,5 +58,27 @@ class StudentService extends Service
             MySql::rollback();
             return HttpResponse::internalServerError($exception->getMessage());
         }
+    }
+
+    public function delete(array $request)
+    {
+        $student = $this->repository->getStudentAccountById($request['id']);
+        MySql::beginTransaction();
+
+        try {
+            $this->authRepository->transactionDelete($student['user_id']);
+            $this->repository->transactionDelete($student['id']);
+            Mysql::commit();
+            return HttpResponse::success($student);
+        } catch (\Exception $exception) {
+            MySql::rollback();
+            return HttpResponse::internalServerError($exception->getMessage());
+        }
+    }
+
+    public function read(array $request)
+    {
+        $user = $this->repository->getStudentAccountById($request['account']['student_id']);
+        return HttpResponse::success($user);
     }
 }

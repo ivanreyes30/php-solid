@@ -23,22 +23,22 @@ class Auth
         return HttpResponse::unauthorized('Unauthorized');
     }
 
-    public static function student(int $studentId)
+    public static function student(int $userId)
     {
         self::authenticated();
 
-        if ($_SESSION['account']['role'] == self::$studentRole && $_SESSION['account']['id'] == $studentId) return;
+        if ($_SESSION['account']['role'] == self::$studentRole && $_SESSION['account']['id'] == $userId) return;
 
         return HttpResponse::forbidden('Forbidden.');
     }
 
-    public static function adminStudent(int $studentId)
+    public static function adminStudent(int $userId)
     {
         self::authenticated();
 
         if ($_SESSION['account']['role'] == self::$adminRole) return;
 
-        if ($_SESSION['account']['role'] == self::$studentRole && $_SESSION['account']['id'] == $studentId) return;
+        if ($_SESSION['account']['role'] == self::$studentRole && $_SESSION['account']['id'] == $userId) return;
 
         return HttpResponse::forbidden('Forbidden.');
     }

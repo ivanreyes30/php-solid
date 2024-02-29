@@ -60,6 +60,16 @@ abstract class Model
         return $updated;
     }
 
+    public function transactionDelete(int $id)
+    {
+        $query = "DELETE FROM {$this->table} WHERE id = '$id'";
+        $deleted = $this->transaction()->query($query);
+        
+        if (!$deleted) throw new Exception('Failed to Update Data.', 500);
+
+        return $deleted;
+    }
+
     public function getDataFromConnection($query)
     {
         $result = [];
@@ -80,5 +90,14 @@ abstract class Model
         }
 
         return $result;
+    }
+
+    public function getById(int $id)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE id = '$id'";
+        $result = $this->getDataFromConnection($query);
+        
+        if (empty($result)) return null;
+        return $result[0];
     }
 }

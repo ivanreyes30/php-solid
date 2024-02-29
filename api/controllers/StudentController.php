@@ -25,4 +25,18 @@ class StudentController extends Controller
         Auth::adminStudent($request['id']);
         return $this->service->update($request);
     }
+
+    public function delete(ValidateInterface $request)
+    {
+        Auth::admin();
+        $request = $request->validate();
+        return $this->service->delete($request);
+    }
+
+    public function read(ValidateInterface $request)
+    {
+        $request = $request->validate();
+        Auth::student($request['account']['id']);
+        return $this->service->read($request);
+    }
 }

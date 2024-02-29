@@ -32,7 +32,7 @@ class StudentRepository extends Repository
 
         $result = $this->model->getDataFromTransaction($query);
 
-        if (empty($result)) return [];
+        if (empty($result)) return null;
 
         return $result[0];
     }

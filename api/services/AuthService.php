@@ -16,11 +16,6 @@ class AuthService extends Service
         $email = $request['email'];
         $password = $request['password'];
         $account = $this->repository->validate($email, $password);
-
-        if (!$account) {
-            return HttpResponse::unauthorized('Invalid Email Address or Password.');
-        }
-
         $this->repository->setSession($account);
         return HttpResponse::success($account);
     }

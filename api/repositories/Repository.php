@@ -18,4 +18,14 @@ abstract class Repository
     {
         return $this->model->transactionUpdate($request, $id);
     }
+
+    public function transactionDelete(int $id)
+    {
+        return $this->model->transactionDelete($id);
+    }
+
+    public function getById(int $id)
+    {
+        return $this->model->getById($id);
+    }
 }

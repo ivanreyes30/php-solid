@@ -9,8 +9,10 @@ include_once "$filepath/api/validations/AuthLoginRequest.php";
 include_once "$filepath/api/controllers/StudentController.php";
 include_once "$filepath/api/validations/StudentCreateRequest.php";
 include_once "$filepath/api/validations/StudentUpdateRequest.php";
+include_once "$filepath/api/validations/StudentDeleteRequest.php";
+include_once "$filepath/api/validations/StudentReadRequest.php";
 
-$baseEndPoint = '/rich';
+$baseEndPoint = '/php-solid';
 $request = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -33,5 +35,15 @@ switch (true) {
     case str_contains($url, '/api/student/update'):
         $request = new StudentUpdateRequest($_POST);
         $student->update($request);
+        break;
+
+    case str_contains($url, '/api/student/delete'):
+        $request = new StudentDeleteRequest($_POST);
+        $student->delete($request);
+        break;
+
+    case str_contains($url, '/api/student/read'):
+        $request = new StudentReadRequest($_SESSION);
+        $student->read($request);
         break;
 }

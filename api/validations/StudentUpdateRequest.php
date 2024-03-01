@@ -2,8 +2,6 @@
 
 include_once "$filepath/api/validations/Request.php";
 include_once "$filepath/api/helpers/HttpResponse.php";
-include_once "$filepath/api/repositories/AuthRepository.php";
-include_once "$filepath/api/repositories/StudentRepository.php";
 
 class StudentUpdateRequest extends Request
 {
@@ -24,12 +22,13 @@ class StudentUpdateRequest extends Request
 
         if (!$student) return HttpResponse::failedValidation('Student is not exists.');
 
-        $emailIsExists = $this->authRepository->getByEmail($this->request['email']);
+        $user = $this->authRepository->getByEmail($this->request['email']);
 
-        if (!empty($emailIsExists)) {
+        // die();
+        if (!empty($user) && ($user['email'] !== $student['email'])) {
             return HttpResponse::failedValidation('Email already exists.');
         }
-        
+
         return $this->request;
     }
 }

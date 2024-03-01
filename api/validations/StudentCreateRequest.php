@@ -2,7 +2,6 @@
 
 include_once "$filepath/api/validations/Request.php";
 include_once "$filepath/api/helpers/HttpResponse.php";
-include_once "$filepath/api/repositories/AuthRepository.php";
 
 class StudentCreateRequest extends Request
 {
@@ -23,7 +22,7 @@ class StudentCreateRequest extends Request
         if (!empty($emailIsExists)) {
             return HttpResponse::failedValidation('Email already exists.');
         }
-        
+
         return $this->request;
     }
 }

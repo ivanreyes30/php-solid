@@ -39,4 +39,11 @@ class StudentController extends Controller
         Auth::student($request['account']['id']);
         return $this->service->read($request);
     }
+
+    public function all(ValidateInterface $request)
+    {
+        Auth::admin();
+        $request = $request->validate();
+        return $this->service->all($request);
+    }
 }

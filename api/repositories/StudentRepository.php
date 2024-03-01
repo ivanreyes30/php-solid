@@ -12,8 +12,8 @@ class StudentRepository extends Repository
 
     public function getStudentAccountById(int $studentId)
     {
-        $query = sprintf(
-            "SELECT
+        $query = "
+            SELECT
                 students.id,
                 first_name,
                 middle_name,
@@ -26,14 +26,37 @@ class StudentRepository extends Repository
             LEFT JOIN
                 users ON {$this->table()}.user_id = users.id
             WHERE
-                students.id = '%s'",
-            $studentId
-        );
+                students.id = '$studentId'
+        ";
 
         $result = $this->model->getDataFromTransaction($query);
 
         if (empty($result)) return null;
 
         return $result[0];
+    }
+
+    public function getAllStudents(int $page, int $perPage)
+    {
+        $query = "
+            SELECT
+                students.id,
+                first_name,
+                middle_name,
+                last_name,
+                users.id AS user_id,
+                email,
+                role 
+            FROM
+                {$this->table()}
+            LEFT JOIN
+                users ON {$this->table()}.user_id = users.id
+            LIMIT
+                $perPage
+            OFFSET
+                $page
+        ";
+
+        return $this->model->getDataFromConnection($query);
     }
 }

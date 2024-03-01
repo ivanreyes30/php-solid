@@ -78,7 +78,15 @@ class StudentService extends Service
 
     public function read(array $request)
     {
-        $user = $this->repository->getStudentAccountById($request['account']['student_id']);
-        return HttpResponse::success($user);
+        $result = $this->repository->getStudentAccountById($request['account']['student_id']);
+        return HttpResponse::success($result);
+    }
+
+    public function all(array $request)
+    {
+        $page = $request['page'] > 1 ? (($request['page'] - 1) * $request['per_page']) : 0;
+        $perPage = $request['per_page'];
+        $result = $this->repository->getAllStudents($page, $perPage);
+        return HttpResponse::success($result);
     }
 }

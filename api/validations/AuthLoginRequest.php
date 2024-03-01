@@ -2,7 +2,6 @@
 
 include_once "$filepath/api/validations/Request.php";
 include_once "$filepath/api/helpers/HttpResponse.php";
-include_once "$filepath/api/repositories/AuthRepository.php";
 
 class AuthLoginRequest extends Request
 {

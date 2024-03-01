@@ -24,7 +24,6 @@ class StudentUpdateRequest extends Request
 
         $user = $this->authRepository->getByEmail($this->request['email']);
 
-        // die();
         if (!empty($user) && ($user['email'] !== $student['email'])) {
             return HttpResponse::failedValidation('Email already exists.');
         }

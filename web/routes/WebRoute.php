@@ -1,6 +1,6 @@
 <?php
 
-include_once "$filepath/api/routes/contracts/RouteInterface.php";
+include_once "$filepath/routing/contracts/RouteInterface.php";
 include_once "$filepath/web/controllers/ViewLoginController.php";
 
 class WebRoute implements RouteInterface

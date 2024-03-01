@@ -1,6 +1,6 @@
 <?php
 
-include_once "$filepath/api/routes/contracts/RouteInterface.php";
+include_once "$filepath/routing/contracts/RouteInterface.php";
 include_once "$filepath/api/controllers/AuthController.php";
 include_once "$filepath/api/controllers/StudentController.php";
 include_once "$filepath/api/validations/AuthLoginRequest.php";

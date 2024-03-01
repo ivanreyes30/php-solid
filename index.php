@@ -1,9 +1,9 @@
 <?php
 session_start();
-include_once './api/config/filesystem.php';
-include_once "$filepath/api/routes/RouteHandler.php";
+include_once './config/filesystem.php';
+include_once "$filepath/routing/RouteHandler.php";
 include_once "$filepath/api/routes/ApiRoute.php";
-include_once "$filepath/api/routes/WebRoute.php";
+include_once "$filepath/web/routes/WebRoute.php";
 
 $baseEndPoint = '/php-solid';
 $request = $_SERVER['REQUEST_URI'];

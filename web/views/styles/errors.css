@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+.error-container {
+    text-align: center;
+    max-width: 350px;
+}
+.error-heading {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.error-message {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+.back-to-home {
+    margin-top: 20px;
+}

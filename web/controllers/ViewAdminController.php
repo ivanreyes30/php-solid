@@ -1,12 +1,12 @@
 <?php
 include_once "./web/controllers/ViewController.php";
 
-class ViewStudentController extends ViewController
+class ViewAdminController extends ViewController
 {
     public function home()
     {
         $this->title = 'Student Information';
-        $this->body = "{$this->filepath}\web\\views\\student\\home.view.php";
+        $this->body = "{$this->filepath}\web\\views\\admin\\home.view.php";
         $this->commonTemplate();
     }
 }

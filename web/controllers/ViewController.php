@@ -12,8 +12,18 @@ abstract class ViewController
         $this->filepath = $filepath;
     }
 
-    public function masterTemplate()
+    public function authTemplate()
     {
-        include_once "{$this->filepath}\web\\views\\master_template\\master_template.view.php";
+        include_once "{$this->filepath}\web\\views\\master_template\\auth.view.php";
+    }
+
+    public function studentTemplate()
+    {
+        include_once "{$this->filepath}\web\\views\\master_template\\student.view.php";
+    }
+
+    public function commonTemplate()
+    {
+        include_once "{$this->filepath}\web\\views\\master_template\\common.view.php";
     }
 }

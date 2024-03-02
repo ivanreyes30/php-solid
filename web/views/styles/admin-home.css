@@ -1,0 +1,20 @@
+div.card.container {
+    margin-top: 200px;
+}
+
+h5.card-title {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.btn {
+    height: 40px;
+}
+
+.btn-student-modal {
+    margin-top: 12px;
+}
+
+i.actions {
+    cursor: pointer;
+}

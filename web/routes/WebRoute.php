@@ -1,8 +1,9 @@
 <?php
 
 include_once "$filepath/routing/contracts/RouteInterface.php";
-include_once "$filepath/web/controllers/ViewLoginController.php";
+include_once "$filepath/web/controllers/ViewAuthController.php";
 include_once "$filepath/web/controllers/ViewStudentController.php";
+include_once "$filepath/web/controllers/ViewAdminController.php";
 
 class WebRoute implements RouteInterface
 {
@@ -10,14 +11,24 @@ class WebRoute implements RouteInterface
     {
         switch (true) {
             case str_contains($url, '/login'):
-                $web = new ViewLoginController();
+                $web = new ViewAuthController();
                 $web->login();
                 break;
 
-            case str_contains($url, '/student/read-update'):
-                    $web = new ViewStudentController();
-                    $web->readUpdate();
-                    break;
+            case str_contains($url, '/sign-up'):
+                $web = new ViewAuthController();
+                $web->signUp();
+                break;
+
+            case str_contains($url, '/student/read'):
+                $web = new ViewStudentController();
+                $web->home();
+                break;
+
+            case str_contains($url, '/admin/home'):
+                $web = new ViewAdminController();
+                $web->home();
+                break;
         }
     }
 }

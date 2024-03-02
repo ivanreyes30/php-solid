@@ -4,15 +4,16 @@ abstract class ViewController
 {
     protected $title;
     protected $body;
-    protected $filePath;
+    protected $filepath;
 
     public function __construct()
     {
-        $this->filePath = getcwd();
+        global $filepath;
+        $this->filepath = $filepath;
     }
 
     public function masterTemplate()
     {
-        include_once "{$this->filePath}\web\\views\\master_template\\master_template.view.php";
+        include_once "{$this->filepath}\web\\views\\master_template\\master_template.view.php";
     }
 }

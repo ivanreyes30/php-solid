@@ -5,7 +5,6 @@ include_once "$filepath/routing/RouteHandler.php";
 include_once "$filepath/api/routes/ApiRoute.php";
 include_once "$filepath/web/routes/WebRoute.php";
 
-$baseEndPoint = '/php-solid';
 $request = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 

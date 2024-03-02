@@ -23,6 +23,11 @@ label {
     margin-bottom: 4px;
 }
 
+small {
+    color: gray;
+    font-size: 12px;
+}
+
 .btn {
     padding: 0.375rem 0.75rem;
     font-size: 14px;

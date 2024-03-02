@@ -3,6 +3,10 @@
 <div class="student-container">
     <form id="student-form">
         <div class="form-group">
+            <h3>Student Information Details</h3>
+            <small>You can view and update information of student.</small>
+        </div>
+        <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email">
         </div>

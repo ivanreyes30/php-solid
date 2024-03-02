@@ -2,10 +2,6 @@ h2 {
    margin-bottom: 8px; 
 }
 
-form {
-    height: 100%;
-}
-
 form::after {
     content: "";
     clear: both;
@@ -17,24 +13,6 @@ form button {
     width: 100px;
 }
 
-input {
-    margin-bottom: 15px;
-}
-
-input[type="email"] {
-    display: block;
-    width: 95%;
-    height: 30px;
-    padding-left: 8px;
-}
-
-input[type="password"] {
-    display: block;
-    width: 95%;
-    height: 30px;
-    padding-left: 8px;
-}
-
 .login-container {
     max-width: 768px;
     margin: auto;
@@ -42,7 +20,7 @@ input[type="password"] {
     padding-top: 300px;
 }
 
-.login-container .form-container {
+#login-form {
     max-width: 400px;
     margin: auto;
     border: 1px solid rgb(218, 220, 224);

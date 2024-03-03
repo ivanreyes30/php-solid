@@ -19,6 +19,6 @@
         <p class="form-control-static">1.0</p>
     </div>
     <div class="d-flex justify-content-center">
-        <button class="btn btn-danger text-center w-50">Log out</button>
+        <button class="btn btn-danger text-center w-50 logout">Logout</button>
     </div>
 </div>

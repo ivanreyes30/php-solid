@@ -2,14 +2,23 @@
     max-width: 768px;
     margin: auto;
     height: 100vh;
-    padding-top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #login-form {
-    max-width: 500px;
-    margin: auto;
+    width: 50%;
     border: 1px solid rgb(218, 220, 224);
     background: white;
     border-radius: 4px;
     padding: 30px;
+    position: relative;
+}
+
+.custom-alert {
+    position: absolute;
+    top: -70px;
+    width: 100%;
+    left: 0;
 }

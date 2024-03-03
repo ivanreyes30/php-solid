@@ -21,7 +21,7 @@ class WebRoute implements RouteInterface
                 $web->signUp();
                 break;
 
-            case str_contains($url, '/student/read'):
+            case str_contains($url, '/student/home'):
                 $web = new ViewStudentController();
                 $web->home();
                 break;

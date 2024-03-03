@@ -1,5 +1,5 @@
 <?php
-include_once "./web/controllers/ViewController.php";
+include_once "$filepath/web/controllers/ViewController.php";
 
 class ViewErrorController extends ViewController
 {

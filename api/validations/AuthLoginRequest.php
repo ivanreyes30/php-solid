@@ -7,7 +7,7 @@ class AuthLoginRequest extends Request
 {
     public function validate()
     {
-        if (!(isset($this->request['email']) && isset($this->request['password']))) {
+        if (!(isset($this->request['email']) && (isset($this->request['password'])))) {
             return HttpResponse::failedValidation('Invalid Parameter Requests.');
         }
 

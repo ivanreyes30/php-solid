@@ -36,6 +36,12 @@ class HttpResponse
         echo json_encode($data);
     }
 
+    public static function successMsg(string $message)
+    {
+        header('HTTP/1.0 200 OK Success');
+        echo json_encode(['status' => true, 'message' => $message]);
+    }
+
     public static function created(array $data)
     {
         header('HTTP/1.0 201 Created');

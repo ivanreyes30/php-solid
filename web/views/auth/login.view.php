@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="<?php echo "{$appUrl}/web/views/styles/login.css" ?>">
+<script src="<?php echo "{$appUrl}/web/views/js/login.js" ?>"></script>
 
-<div class="login-container">    
+<div class="login-container">
     <form id="login-form">
+        <?php include_once "$filepath/web/views/master_template/alert.view.php" ?>
         <h2 class="mb-4">Login</h2>
         <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>

@@ -19,4 +19,10 @@ class AuthService extends Service
         $this->repository->setSession($account);
         return HttpResponse::success($account);
     }
+
+    public function logout()
+    {
+        $this->repository->logout();
+        return HttpResponse::successMsg('Logged out.');
+    }
 }

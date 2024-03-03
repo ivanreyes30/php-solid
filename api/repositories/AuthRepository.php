@@ -53,4 +53,9 @@ class AuthRepository extends Repository
     {
         $_SESSION['account'] = $account;
     }
+
+    public function logout()
+    {
+        session_destroy();
+    }
 }

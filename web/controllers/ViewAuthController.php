@@ -1,8 +1,15 @@
 <?php
-include_once "./web/controllers/ViewController.php";
+include_once "$filepath/web/controllers/ViewController.php";
+include_once "$filepath/web/helpers/Session.php";
 
 class ViewAuthController extends ViewController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        Session::hasSession();
+    }
+
     public function login()
     {
         $this->title = 'Login';

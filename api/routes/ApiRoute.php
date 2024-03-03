@@ -4,6 +4,7 @@ include_once "$filepath/routing/contracts/RouteInterface.php";
 include_once "$filepath/api/controllers/AuthController.php";
 include_once "$filepath/api/controllers/StudentController.php";
 include_once "$filepath/api/validations/AuthLoginRequest.php";
+include_once "$filepath/api/validations/AuthLogoutRequest.php";
 include_once "$filepath/api/validations/StudentCreateRequest.php";
 include_once "$filepath/api/validations/StudentUpdateRequest.php";
 include_once "$filepath/api/validations/StudentDeleteRequest.php";
@@ -27,6 +28,11 @@ class ApiRoute implements RouteInterface
             case str_contains($url, '/auth/login'):
                 $request = new AuthLoginRequest($_POST);
                 $this->auth->login($request);
+                break;
+
+            case str_contains($url, '/auth/logout'):
+                $request = new AuthLogoutRequest([]);
+                $this->auth->logout($request);
                 break;
 
             case str_contains($url, '/student/create'):

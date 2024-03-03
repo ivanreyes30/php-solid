@@ -15,4 +15,10 @@ class AuthController extends Controller
         $request = $request->validate();
         return $this->service->login($request);
     }
+
+    public function logout(ValidateInterface $request)
+    {
+        $request->validate();
+        return $this->service->logout();
+    }
 }

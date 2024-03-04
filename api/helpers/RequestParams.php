@@ -5,9 +5,9 @@ class RequestParams
     public static function student(array $request, int $userId = null)
     {
         $params = [
-            'first_name' => $request['first_name'],
-            'middle_name' => $request['middle_name'],
-            'last_name' => $request['last_name'],
+            'name' => $request['name'],
+            'age' => $request['age'],
+            'gpa' => $request['gpa'],
         ];
 
         if ($userId) $params['user_id'] = $userId;

@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="<?php echo "{$appUrl}/web/views/styles/login.css" ?>">
-<script src="<?php echo "{$appUrl}/web/views/js/login.js" ?>"></script>
 
 <div class="login-container">
     <form id="login-form">
@@ -14,8 +13,10 @@
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <div class="mb-4 text-right">
-            Not a member? <a href="">Register</a>
+            Not a member? <a href="<?php echo "{$appUrl}/web/sign-up" ?>">Register</a>
         </div>
         <button type="submit" class="btn btn-primary w-100">Login</button>
     </form>
 </div>
+
+<script src="<?php echo "{$appUrl}/web/views/js/login.js" ?>"></script>

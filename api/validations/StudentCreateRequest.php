@@ -10,11 +10,19 @@ class StudentCreateRequest extends Request
         if (!(
             isset($this->request['email']) &&
             isset($this->request['password']) &&
-            isset($this->request['first_name']) &&
-            isset($this->request['middle_name']) &&
-            isset($this->request['last_name'])
+            isset($this->request['name']) &&
+            isset($this->request['age']) &&
+            isset($this->request['gpa'])
         )) {
             return HttpResponse::failedValidation('Invalid Parameter Requests.');
+        }
+
+        if (!filter_var($this->request['email'], FILTER_VALIDATE_EMAIL)) {
+            return HttpResponse::failedValidation('Invalid Email Format.');
+        }
+
+        if ($this->request['gpa'] < 1.00 || $this->request['gpa'] > 5.00) {
+            return HttpResponse::failedValidation('GPA must be between 1.00 and 5.00');
         }
 
         $emailIsExists = $this->authRepository->getByEmail($this->request['email']);

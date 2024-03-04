@@ -15,9 +15,9 @@ class AuthRepository extends Repository
         $query = sprintf(
             "SELECT
                 users.id,
-                first_name,
-                middle_name,
-                last_name,
+                name,
+                age,
+                gpa,
                 students.id AS student_id,
                 email,
                 password,

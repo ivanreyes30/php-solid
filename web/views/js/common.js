@@ -59,6 +59,12 @@ function get (endpoint)
   })
 }
 
+/*
+|--------------------------------------------------------------------------
+| Form Helpers
+|--------------------------------------------------------------------------
+*/
+
 function formData(params)
 {
   let form = new FormData()
@@ -69,6 +75,25 @@ function formData(params)
 
   return form
 }
+
+function getFormValues(form)
+{
+  const object = {}
+
+  $(`${form} input[type="text"], input[type="password"], input[type="email"], input[type="number"]`).each((key, inputBox) => {
+    const name = $(inputBox).attr('name')
+    const value = $(inputBox).val()
+    object[name] = value
+  })
+
+  return formData(object)
+}
+
+/*
+|--------------------------------------------------------------------------
+| Alert Helpers
+|--------------------------------------------------------------------------
+*/
 
 function showAlert(type, message)
 {

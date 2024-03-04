@@ -14,7 +14,6 @@ class StudentController extends Controller
 
     public function create(ValidateInterface $request)
     {
-        Auth::admin();
         $request = $request->validate();
         return $this->service->create($request);
     }
@@ -22,7 +21,8 @@ class StudentController extends Controller
     public function update(ValidateInterface $request)
     {
         $request = $request->validate();
-        Auth::adminStudent($request['id']);
+        // Auth::adminStudent($request['id']);
+        Auth::admin();
         return $this->service->update($request);
     }
 

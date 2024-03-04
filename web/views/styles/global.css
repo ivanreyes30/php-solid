@@ -8,3 +8,10 @@ html, body {
 .custom-alert {
     display: none;
 }
+
+form > .custom-alert {
+    position: absolute;
+    top: -70px;
+    width: 100%;
+    left: 0;
+}

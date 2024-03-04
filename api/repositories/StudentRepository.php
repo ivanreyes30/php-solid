@@ -15,9 +15,9 @@ class StudentRepository extends Repository
         $query = "
             SELECT
                 students.id,
-                first_name,
-                middle_name,
-                last_name,
+                name,
+                age,
+                gpa,
                 users.id AS user_id,
                 email,
                 role 
@@ -41,9 +41,9 @@ class StudentRepository extends Repository
         $query = "
             SELECT
                 students.id,
-                first_name,
-                middle_name,
-                last_name,
+                name,
+                age,
+                gpa,
                 users.id AS user_id,
                 email,
                 role 

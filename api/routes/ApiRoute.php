@@ -20,6 +20,7 @@ class ApiRoute implements RouteInterface
     {
         $this->auth = new AuthController();
         $this->student = new StudentController();
+        header('Content-Type: application/json; charset=utf-8');
     }
 
     public function redirect(string $url)

@@ -15,10 +15,3 @@
     padding: 30px;
     position: relative;
 }
-
-.custom-alert {
-    position: absolute;
-    top: -70px;
-    width: 100%;
-    left: 0;
-}

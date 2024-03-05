@@ -84,9 +84,11 @@ class StudentService extends Service
 
     public function all(array $request)
     {
-        $page = $request['page'] > 1 ? (($request['page'] - 1) * $request['per_page']) : 0;
-        $perPage = $request['per_page'];
-        $result = $this->repository->getAllStudents($page, $perPage);
-        return HttpResponse::success($result);
+        try {
+            $result = $this->repository->getAllStudents($request);
+            return HttpResponse::success($result);
+        } catch (\Exception $exception) {
+            return HttpResponse::internalServerError($exception->getMessage());
+        }
     }
 }

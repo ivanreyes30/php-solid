@@ -28,4 +28,9 @@ abstract class Repository
     {
         return $this->model->getById($id);
     }
+
+    public function getCount()
+    {
+        return $this->model->getCount();
+    }
 }

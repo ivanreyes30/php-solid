@@ -57,7 +57,7 @@ class ApiRoute implements RouteInterface
                 break;
 
             case str_contains($url, '/student/all'):
-                $request = new StudentAllRequest($_POST);
+                $request = new StudentAllRequest($_GET);
                 $this->student->all($request);
                 break;
         }

@@ -1,5 +1,12 @@
-div.card.container {
-    margin-top: 200px;
+.home-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.home-container .card {
+    align-self: center;
+    width: 80%;
 }
 
 h5.card-title {
@@ -16,5 +23,13 @@ h5.card-title {
 }
 
 i.actions {
+    cursor: pointer;
+}
+
+nav {
+    display: none;
+}
+
+.pagination li {
     cursor: pointer;
 }

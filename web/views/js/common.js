@@ -38,6 +38,18 @@ $(document).on('click', '.logout', function (e) {
 |--------------------------------------------------------------------------
 */
 
+function get (endpoint, params)
+{
+  console.log(params)
+  return $.ajax({
+    url: endpoint,
+    type: 'GET',
+    data: params,
+    contentType: false,
+    processData: false
+  })
+}
+
 function post (endpoint, params)
 {
   return $.ajax({

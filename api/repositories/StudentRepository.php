@@ -36,8 +36,11 @@ class StudentRepository extends Repository
         return $result[0];
     }
 
-    public function getAllStudents(int $page, int $perPage)
+    public function getAllStudents(array $request)
     {
+        $page = $request['page'] > 1 ? (($request['page'] - 1) * $request['per_page']) : 0;
+        $perPage = $request['per_page'];
+
         $query = "
             SELECT
                 students.id,
@@ -57,6 +60,6 @@ class StudentRepository extends Repository
                 $page
         ";
 
-        return $this->model->getDataFromConnection($query);
+        return $this->model->paginate($query, $request, 'student/all');
     }
 }

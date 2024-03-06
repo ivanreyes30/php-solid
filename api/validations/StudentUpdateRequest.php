@@ -9,10 +9,10 @@ class StudentUpdateRequest extends Request
     {
         if (!(
             isset($this->request['email']) &&
-            isset($this->request['password']) &&
-            isset($this->request['first_name']) &&
-            isset($this->request['middle_name']) &&
-            isset($this->request['last_name']) &&
+            // isset($this->request['password']) &&
+            isset($this->request['name']) &&
+            isset($this->request['age']) &&
+            isset($this->request['gpa']) &&
             isset($this->request['id'])
         )) {
             return HttpResponse::failedValidation('Invalid Parameter Requests.');

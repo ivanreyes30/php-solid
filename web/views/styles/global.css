@@ -7,6 +7,7 @@ html, body {
 
 .custom-alert {
     display: none;
+    z-index: 99999;
 }
 
 form > .custom-alert {

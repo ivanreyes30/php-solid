@@ -40,7 +40,6 @@ $(document).on('click', '.logout', function (e) {
 
 function get (endpoint, params)
 {
-  console.log(params)
   return $.ajax({
     url: endpoint,
     type: 'GET',
@@ -92,13 +91,19 @@ function getFormValues(form)
 {
   const object = {}
 
-  $(`${form} input[type="text"], input[type="password"], input[type="email"], input[type="number"]`).each((key, inputBox) => {
+  // input[type="text"], input[type="password"], input[type="email"], input[type="number"] input[type="hidden"]
+  $(`${form} input`).each((key, inputBox) => {
     const name = $(inputBox).attr('name')
     const value = $(inputBox).val()
     object[name] = value
   })
 
   return formData(object)
+}
+
+function isPasswordMatched()
+{
+  return $('#password').val() === $('#confirm-password').val()
 }
 
 /*

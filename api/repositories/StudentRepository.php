@@ -54,6 +54,7 @@ class StudentRepository extends Repository
                 {$this->table()}
             LEFT JOIN
                 users ON {$this->table()}.user_id = users.id
+            ORDER BY id DESC
             LIMIT
                 $perPage
             OFFSET

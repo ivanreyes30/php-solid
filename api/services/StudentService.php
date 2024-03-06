@@ -41,7 +41,8 @@ class StudentService extends Service
     public function update(array $request)
     {
         $student = $this->repository->getStudentAccountById($request['id']);
-        $userParams = RequestParams::user($request);
+        // $userParams = RequestParams::user($request);
+        $userParams = ['email' => $request['email']];
         MySql::beginTransaction();
 
         try {

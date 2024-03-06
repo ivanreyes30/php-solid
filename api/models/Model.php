@@ -120,6 +120,16 @@ abstract class Model
         $finalPagination = [];
         $startingIndex = 0;
 
+        if (empty($result)) {
+            return [
+                'data' => $result,
+                'pagination' => [],
+                'current_page' => (int) $request['page'],
+                'per_page' => (int) $request['per_page'],
+                'total_page' => (int) $totalPage,
+            ];
+        }
+
         if ($request['page'] > $totalPage) {
             throw new Exception('Pagination failed.', 500);
         }

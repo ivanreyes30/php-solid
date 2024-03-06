@@ -1,5 +1,6 @@
 <?php
 include_once "$filepath/web/views/admin/student.modal.php";
+include_once "$filepath/web/views/master_template/alert.view.php";
 ?>
 
 <link rel="stylesheet" href="<?php echo "{$appUrl}/web/views/styles/admin-home.css" ?>">
@@ -16,7 +17,7 @@ include_once "$filepath/web/views/admin/student.modal.php";
                         </small>
                     </p>
                 </div>
-                <button type="button" class="btn btn-success btn-student-modal" data-bs-toggle="modal" data-bs-target="#studentModal">
+                <button type="button" class="btn btn-success btn-student-modal action" data-bs-toggle="modal" action="create">
                     Add Student
                 </button>
             </div>

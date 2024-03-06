@@ -22,8 +22,3 @@ $(document).on('submit', '#signup-form', function (e) {
       $(this).find('button').prop('disabled', false)
     })
 })
-
-function isPasswordMatched()
-{
-  return $('#password').val() === $('#confirm-password').val()
-}
